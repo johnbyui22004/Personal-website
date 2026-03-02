@@ -39,6 +39,11 @@ nav {
     letter-spacing: 1px;
 }
 
+/* Make the logo text render in all caps */
+.logo {
+    text-transform: uppercase;
+}
+
 /* Hide mobile toggle by default; shown in media query */
 .mobile-menu-toggle {
     display: none;
@@ -59,15 +64,19 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 26px;
 }
 
 .nav-links a {
     color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: 0.3s;
+    font-size: 1.05rem;
+    /* larger nav buttons */
+    font-weight: 600;
+    padding: 10px 12px;
+    /* bigger click/tap area */
+    border-radius: 6px;
+    transition: 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -273,8 +282,11 @@ footer {
 
     .site-nav .nav-links a {
         color: var(--white);
-        font-size: 1.1rem;
-        padding: 8px 0;
+        font-size: 1.25rem;
+        /* even larger on mobile */
+        padding: 12px 0;
+        /* taller touch targets */
+        display: block;
     }
 
     /* Prevent body scroll when menu is open (script toggles .no-scroll on body) */
