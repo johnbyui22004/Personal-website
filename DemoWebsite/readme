@@ -1,0 +1,51 @@
+Act as an expert frontend web developer and conversion copywriter specializing in local service businesses. I am building a reusable website template to pitch to independent local auto repair shops. My agency is called "Morningstar Web Solutions," and my main selling point is that I build fast, mobile-optimized sites that convert visitors into phone calls and scheduled repair jobs.
+
+Please write the complete, production-ready HTML, CSS, and vanilla JavaScript for this demo website.
+
+Technical & Design Requirements:
+Tech Stack: Pure HTML5, CSS3, and vanilla JavaScript (no React, no heavy frameworks). It must be fast, lightweight, and easy to host on Netlify.
+
+Design/Aesthetic: Clean, modern, and trustworthy. Use a color palette featuring clean dark tones with gold accents (to match my logo), white backgrounds for main content areas, dark text for high readability, and gold for primary call-to-action buttons.
+
+UX/UI Focus: Mobile-first approach. Use big, easily tappable buttons, clear phone numbers at the top, and no excessive or distracting animations. The focus is strictly on driving Calls, Directions, and Trust.
+
+Website Structure & Content Guidelines:
+Please generate the code for the following pages (or a comprehensive single-page structure that simulates them):
+
+1. Home Page (Conversion-focused)
+
+Hero Section: * Headline: "Need Reliable Auto Repair in [City]? Fast. Honest. Certified Technicians."
+
+Primary Button: "Call Now"
+
+Services Overview: Brief grid highlighting core services.
+
+Why Choose Us: Focus on trust, certifications, and speed.
+
+Reviews Preview: Highlight a star rating and a couple of testimonials.
+
+Call to Action: Final push to call or book.
+
+Footer: Map embed placeholder, contact info, and hours.
+
+2. Services Page
+
+List specific, high-intent services: Brake Repair, Oil Changes, Engine Diagnostics, AC Repair, and Transmission Service. * Include a short description, the benefits of choosing this shop, and a "Call to Book" button for each service.
+
+3. About Page (Trust Builder)
+
+Focus on elements that mechanics and their customers care about: Years in business, ASE Certifications, family-owned history, and honest pricing guarantees.
+
+4. Reviews Page
+
+Include a bold header: "Rated 4.9 Stars by 200+ Drivers"
+
+Design a clean layout for 3 to 6 placeholder reviews.
+
+5. Contact Page
+
+Make the phone number huge.
+
+Include an embedded map placeholder, business hours, and a simple, mobile-friendly contact form.
+
+Please provide the index.html (with the homepage structure), a single style.css file that styles all elements beautifully according to the dark/gold theme, and script.js for basic functionality (like a mobile hamburger menu and simple form validation). Ensure the HTML includes placeholder links for the other pages.
