@@ -1,11 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
+    // --- Navigation Logic ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const siteNav = document.getElementById('site-nav');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const body = document.body;
+
+    if (menuToggle && siteNav) {
+        menuToggle.addEventListener('click', () => {
+            // Toggle the 'active' class on the nav and 'no-scroll' on the body
+            const isActive = siteNav.classList.toggle('active');
+            body.classList.toggle('no-scroll', isActive);
+            
+            // Accessibility: update aria-expanded if you're using it
+            menuToggle.setAttribute('aria-expanded', isActive);
+        });
+
+        // Close menu and restore scroll when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                siteNav.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+        });
+    }
+
+    // --- Contact Form Logic (Your Original Code) ---
+    const contactForm = document.getElementById('contact-form'); // Note: ID matched to your HTML
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Simple visual feedback
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             

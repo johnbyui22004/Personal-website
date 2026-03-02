@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const siteNav = document.getElementById('site-nav');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault(); // Prevent page reload
 
         // Grab values
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Success state
             formStatus.textContent = `Thank you, ${name}! We will call you shortly at ${phone}.`;
             formStatus.className = 'form-status form-success';
-            
+
             // Reset form
             contactForm.reset();
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
-            
+
             // Clear success message after 5 seconds
             setTimeout(() => {
                 formStatus.textContent = '';
@@ -59,5 +59,40 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 5000);
 
         }, 1200); // Simulated delay
+    });
+
+    // --- Prevent parent page from auto-scrolling when clicking fragment links inside this iframe ---
+    // Intercept clicks on same-document fragment links and perform in-iframe smooth scrolling.
+    document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a');
+        if (!anchor) return;
+
+        const href = anchor.getAttribute('href');
+        // Only handle same-document fragment links (e.g. "#services")
+        if (href && href.startsWith('#')) {
+            // Prevent default browser anchor behavior which can trigger parent scroll alignment
+            e.preventDefault();
+
+            const id = href.slice(1);
+            if (!id) return; // '#' alone
+
+            const targetEl = document.getElementById(id);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Notify parent that a fragment navigation is occurring so it can preserve/restore scroll
+                try {
+                    window.parent.postMessage({ type: 'iframe-fragment-click', href }, '*');
+                } catch (err) {
+                    // ignore if parent is inaccessible (cross-origin)
+                }
+                // Update iframe URL hash without triggering default scroll jump in many browsers
+                try {
+                    history.replaceState(null, '', href);
+                } catch (err) {
+                    // fallback if replaceState is not available for some reason
+                    location.hash = href;
+                }
+            }
+        }
     });
 });

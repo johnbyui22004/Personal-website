@@ -420,3 +420,17 @@ section { padding: 5rem 0; }
         margin-bottom: 1.5rem;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* 1. Prevent the 'jump' from hiding content under a sticky header */
+section[id] {
+    scroll-margin-top: 80px; /* Adjust this value to match your header's height */
+}
+
+/* 2. Make the transition smooth instead of a sudden snap */
+html {
+    scroll-behavior: smooth;
+}

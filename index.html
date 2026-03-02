@@ -91,6 +91,29 @@
     </section>
 
     <footer>&copy; 2024 Morningstar Web Solutions. All rights reserved.</footer>
+
+    <script>
+        // Listen to messages from the demo iframe and restore parent scroll to prevent automatic jump
+        (function () {
+            window.addEventListener('message', function (e) {
+                try {
+                    var data = e.data;
+                    if (!data || data.type !== 'iframe-fragment-click') return;
+
+                    // Save current viewport position
+                    var savedY = window.scrollY || window.pageYOffset || 0;
+
+                    // Restore scroll on the next animation frame (and once more after a short timeout)
+                    requestAnimationFrame(function () {
+                        window.scrollTo(0, savedY);
+                        setTimeout(function () { window.scrollTo(0, savedY); }, 40);
+                    });
+                } catch (err) {
+                    // ignore errors (e.g. malformed message)
+                }
+            }, false);
+        })();
+    </script>
 </body>
 
 </html>
