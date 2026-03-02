@@ -9,12 +9,21 @@
 <body>
     <nav>
         <a href="index.html" class="logo">MORNINGSTAR</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+        <button id="menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="site-nav" class="site-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <header class="header-section">
@@ -37,5 +46,6 @@
     </section>
 
     <footer>&copy; 2024 Morningstar Web Solutions.</footer>
+    <script src="script.js"></script>
 </body>
 </html>

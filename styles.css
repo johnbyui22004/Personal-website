@@ -39,6 +39,23 @@ nav {
     letter-spacing: 1px;
 }
 
+/* Hide mobile toggle by default; shown in media query */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--primary-gold);
+    border-radius: 2px;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -222,6 +239,44 @@ footer {
     .nav-links {
         display: none;
     }
+
+    /* Show hamburger on small screens */
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Dropdown container (hidden by default) */
+    .site-nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--dark-charcoal);
+        padding: 12px 5%;
+        display: none;
+        z-index: 999;
+    }
+
+    .site-nav.active { display: block; }
+
+    .site-nav .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .site-nav .nav-links a {
+        color: var(--white);
+        font-size: 1.1rem;
+        padding: 8px 0;
+    }
+
+    /* Prevent body scroll when menu is open (script toggles .no-scroll on body) */
+    .no-scroll { overflow: hidden; height: 100vh; }
 
     /* Simplified for demo */
     .header-section h1 {
