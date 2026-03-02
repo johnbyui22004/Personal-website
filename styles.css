@@ -261,7 +261,9 @@ footer {
         z-index: 999;
     }
 
-    .site-nav.active { display: block; }
+    .site-nav.active {
+        display: block;
+    }
 
     .site-nav .nav-links {
         display: flex;
@@ -276,7 +278,10 @@ footer {
     }
 
     /* Prevent body scroll when menu is open (script toggles .no-scroll on body) */
-    .no-scroll { overflow: hidden; height: 100vh; }
+    .no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
 
     /* Simplified for demo */
     .header-section h1 {
@@ -297,6 +302,8 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+
 section[id] {
-    scroll-margin-top: 80px; /* Adjust this value to match your header's height */
+    scroll-margin-top: 80px;
+    /* Adjust this value to match your header's height */
 }
